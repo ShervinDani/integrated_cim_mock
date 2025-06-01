@@ -1,0 +1,13 @@
+package com.cim.backend;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class CimBackendApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CimBackendApplication.class, args);
+	}
+
+}
