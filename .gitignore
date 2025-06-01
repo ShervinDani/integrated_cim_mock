@@ -1,0 +1,13 @@
+# Ignore IDE and temp folders
+.metadata/
+RemoteSystemsTempFiles/
+
+# Ignore lock files
+*.lck
+
+# Node modules (if using Node.js)
+node_modules/
+
+# Logs and temp files
+*.log
+*.tmp
