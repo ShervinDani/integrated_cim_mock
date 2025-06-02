@@ -1,0 +1,17 @@
+<div class="plans-container">
+  <h2>📋 Available Plans</h2>
+
+  <div class="plans-grid">
+    <div *ngFor="let plan of plans" class="plan-card">
+      <h3>{{ plan.name }}</h3>
+      <p><strong>💬 Description:</strong> {{ plan.description }}</p>
+      <p><strong>💰 Price:</strong> ₹{{ plan.price }}</p>
+      <p><strong>📶 Data:</strong> {{ plan.dataLimit }} GB</p>
+      <p><strong>📨 SMS:</strong> {{ plan.smsLimit }}</p>
+      <p><strong>📞 Voice:</strong> {{ plan.voiceLimit }} mins</p>
+      <p><strong>📅 Validity:</strong> {{ plan.expiryDate }} days</p>
+      <p><strong>🔖 Type:</strong> {{ plan.type }}</p>
+      <button (click)="recharge(plan.id)">Recharge</button>
+    </div>
+  </div>
+</div>

@@ -28,13 +28,13 @@
 // }
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-payment',
   standalone: true,
-  imports: [CommonModule, HttpClientModule,FormsModule],
+  imports: [CommonModule,FormsModule],
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.css']
 })
