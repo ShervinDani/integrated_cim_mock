@@ -10,7 +10,7 @@ import { firstValueFrom } from 'rxjs';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './userlogin.component.html',
-  styleUrls: ['./userlogin.component.css'] // ✅ use 'styleUrls' instead of 'styleUrl'
+  styleUrls: ['./userlogin.component.css']
 })
 export class UserloginComponent {
   email: string = '';
@@ -25,10 +25,10 @@ export class UserloginComponent {
 
     try {
       const response = await firstValueFrom(
-        this.http.post<{ message: string }>('http://localhost:1426/send-otp', { email: this.email })
+        this.http.post<{ message: string }>('http://localhost:1010/send-otp', { email: this.email })
       );
 
-      console.log(response.message); // Optional: log backend message
+      console.log(response.message);
       localStorage.setItem('email', this.email);
       this.router.navigate(['/verify-otp']);
     } catch (error: any) {

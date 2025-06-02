@@ -12,6 +12,7 @@ import { StatustrackingComponent } from './statustracking/statustracking.compone
 import { PaymentComponent } from './payment/payment.component';
 import { Customerform2Component } from './customerform2/customerform2.component';
 import { NumberselectionComponent } from './numberselection/numberselection.component';
+import { UserComponent } from './user/user.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   {
@@ -37,5 +38,8 @@ export const routes: Routes = [
       { path: 'documentform', component: Customerform2Component },
       { path: 'numberselection', component: NumberselectionComponent },
     ]
+  },
+  {
+    path: 'user/dashboard', component: UserComponent
   }
 ];

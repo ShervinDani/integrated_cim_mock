@@ -22,12 +22,12 @@ export class VerifyOtpComponent {
 
   async verifyOtp() {
     try {
-      await firstValueFrom(this.http.post('http://localhost:1426/verify-otp', {
+      await firstValueFrom(this.http.post('http://localhost:1010/verify-otp', {
         email: this.email,
         otp: this.otp
       }));
       alert('OTP Verified');
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/user/dashboard']);
     } catch (error) {
       alert('Invalid OTP');
       console.error('OTP verification failed:', error);
