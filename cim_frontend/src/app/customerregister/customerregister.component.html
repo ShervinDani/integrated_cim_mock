@@ -1,0 +1,60 @@
+<div class="container">
+  <h3>Customer Onboarding Form</h3>
+  <div class="form">
+    <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+      <label for="firstName">First Name</label>
+      <input id="firstName" type="text" formControlName="firstName" />
+      <div *ngIf="customerForm.get('firstName')?.invalid && customerForm.get('firstName')?.touched" class="error" >
+      First Name is required.
+    </div>
+ 
+    <label for="lastName">Last Name</label>
+    <input id="lastName" type="text" formControlName="lastName" />
+    <div *ngIf="customerForm.get('lastName')?.invalid && customerForm.get('lastName')?.touched" class="error">
+      Last Name is required.
+    </div>
+ 
+    <label for="dateOfBirth">Date of Birth</label>
+    <input id="dateOfBirth" type="date" formControlName="dateOfBirth" />
+    <div *ngIf="customerForm.get('dateOfBirth')?.invalid && customerForm.get('dateOfBirth')?.touched" class="error">
+      Date of Birth is required.
+    </div>
+ 
+    <div class="gender">
+      <label>Gender</label>
+      <div class="gender-options">
+        <label>
+          <input type="radio" formControlName="gender" value="Male" />
+          <span class="gender-pill">Male</span>
+        </label>
+        <label>
+          <input type="radio" formControlName="gender" value="Female" />
+          <span class="gender-pill">Female</span>
+        </label>
+      </div>
+    </div>
+    <div *ngIf="customerForm.get('gender')?.invalid && customerForm.get('gender')?.touched" class="error">
+      Gender is required.
+    </div>
+ 
+    <label for="email">Email</label>
+    <input id="email" type="email" formControlName="email" />
+    <div *ngIf="customerForm.get('email')?.invalid && customerForm.get('email')?.touched" class="error">
+      <div *ngIf="customerForm.get('email')?.errors?.['required']">Email is required.</div>
+      <div *ngIf="customerForm.get('email')?.errors?.['email']">Please enter a valid email.</div>
+    </div>
+    <div class="address">
+      <div class="left-address">
+        <label for="address">Address</label>
+      </div>
+      <div class="right-address">
+        <textarea id="address" formControlName="address" rows="3" cols="50" placeholder="Enter your address"></textarea>
+        <div *ngIf="customerForm.get('address')?.invalid && (customerForm.get('address')?.touched || customerForm.get('address')?.dirty)" class="error">
+          <div class="error">Address is required.</div>
+        </div>
+    </div>
+      </div>
+    <button type="submit">Register</button>
+    </form>
+  </div>
+</div>

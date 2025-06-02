@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="card" *ngFor="let i of data">
+    <div class="top">
+      <div class="top-left">
+        <h4><strong>{{i.price}}</strong></h4>
+      </div>
+      <div class="top-right">{{i.type}}</div>
+    </div>
+    <div class="bottom">
+      <div class="bottom-left">
+        <p><strong>{{i.name}}</strong></p>
+        <p><strong>Validity:</strong> {{i.expiryDate}} days</p>
+        <p><strong>Calls:</strong> {{i.voiceLimit}} min</p>
+        <p><strong>SMS:</strong> {{i.smsLimit}}</p>
+        <p><strong>Data:</strong> {{i.dataLimit}} GB</p>
+      </div>
+      <div class="bottom-right">
+        <button class="button" (click)="pay(i)">Buy..!</button>
+      </div>
+    </div>
+  </div>
+</div>

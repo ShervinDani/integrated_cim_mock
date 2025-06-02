@@ -1,0 +1,105 @@
+<!-- 
+ <div class="container">
+  <div class="left">
+    <table>
+      <tr>
+          <th>Name</th>
+          <td>{{ plan.name }}</td>
+        </tr>
+        <tr>
+          <th>Description</th>
+          <td>{{ plan.description }}</td>
+        </tr>
+        <tr>
+          <th>Price (₹)</th>
+          <td>{{ plan.price }}</td>
+        </tr>
+        <tr>
+          <th>Data Limit</th>
+          <td>{{ plan.dataLimit }} GB</td>
+        </tr>
+        <tr>
+          <th>Voice Limit</th>
+          <td>{{ plan.voiceLimit }} min</td>
+        </tr>
+        <tr>
+          <th>SMS Limit</th>
+          <td>{{ plan.smsLimit }}</td>
+        </tr>
+        <tr>
+          <th>Validity</th>
+          <td>{{ plan.expiryDate }} days</td>
+        </tr>
+        <tr>
+          <th>Type</th>
+          <td>{{ plan.type }}</td>
+        </tr>
+    </table>
+  </div>
+  <div class="right">
+    <h1>Payment GateWay</h1>
+  </div>
+</div> -->
+<div class="container">
+  <div class="left">
+    <table>
+      <tr>
+        <th>Name</th>
+        <td>{{ plan?.name }}</td>
+      </tr>
+      <tr>
+        <th>Description</th>
+        <td>{{ plan?.description }}</td>
+      </tr>
+      <tr>
+        <th>Price (₹)</th>
+        <td>{{ plan?.price }}</td>
+      </tr>
+      <tr>
+        <th>Data Limit</th>
+        <td>{{ plan?.dataLimit }} GB</td>
+      </tr>
+      <tr>
+        <th>Voice Limit</th>
+        <td>{{ plan?.voiceLimit }} min</td>
+      </tr>
+      <tr>
+        <th>SMS Limit</th>
+        <td>{{ plan?.smsLimit }}</td>
+      </tr>
+      <tr>
+        <th>Validity</th>
+        <td>{{ plan?.expiryDate }} days</td>
+      </tr>
+      <tr>
+        <th>Type</th>
+        <td>{{ plan?.type }}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="right">
+        <div class="status-container" *ngIf="isCustomerAvailable==false">
+  <h2>Enter Number</h2>
+  <input
+    type="text"
+    [(ngModel)]="phoneNumber"
+    placeholder="Enter phone number"
+    class="input-box"
+  />
+
+  <button (click)="getDetails()" class="check-btn">Check Number</button>
+</div>
+<br>
+    <h1>Payment Gateway</h1>
+
+    <button class="check-btn" (click)="payAndSubmit()" [disabled]="loading">
+      {{ loading ? 'Processing...' : 'Pay and Submit' }}
+    </button>
+
+    <div class="status-result" *ngIf="paymentSuccess">
+      Submitted Successfully ✅
+    </div>
+  </div>
+</div>
+

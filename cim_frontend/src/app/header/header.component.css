@@ -1,0 +1,43 @@
+.header{
+  background-color: #002147;
+  display: flex;
+  height: 100px;
+}
+
+.left-header{
+  padding: 20px;
+}
+
+.right-header{
+  padding: 40px;
+  width: 100%;
+}
+
+h1{
+  color: #fff;
+  font-size: 50px;
+}
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+a{
+  color: #ffff;
+  font-size: 20px;
+  transition: all 0.5s;
+  text-decoration: none;
+}
+
+a:hover{
+  text-shadow: black;
+  text-shadow: 2px 2px 4px black;
+  font-size: 25px;
+  color: #ffff;
+}
+
+.router-link-active{
+  color: #002147;
+}

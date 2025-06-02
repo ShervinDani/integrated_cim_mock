@@ -1,0 +1,37 @@
+<div class="container">
+    <table>
+        <tr>
+            <th>AVAILABLE NUMBERS</th>
+        </tr>
+        <tr *ngFor="let i of data">
+            <td>
+                <div class="flex-div">
+                    <h1>{{i.phoneNumber}}</h1>
+                    <span class="drop-down" (click)="clickArrow(i)">{{arrow}}</span>
+                </div>
+                <div class="toggle" *ngIf="istoggled == i">
+                    <div class="flex-div">
+                        <div class="flex-div-left">
+                            <div class="type" *ngIf="type != 'PREPAID'" (click)="selectType('PREPAID')">
+                                <span >PREPAID</span>
+                            </div>
+                            <div class="active" *ngIf="type == 'PREPAID'">
+                                <span>PREPAID</span>
+                            </div>
+                            <div class="type" *ngIf="type != 'POSTPAID'" (click)="selectType('POSTPAID')">
+                                <span>POSTPAID</span>
+                            </div>
+                            <div class="active" *ngIf="type == 'POSTPAID'">
+                                <span>POSTPAID</span>
+                            </div>
+                        </div>
+                        <div class="flex-div-right">
+                            <button (click)="selectNumber(i)">Buy</button>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            
+        </tr>
+    </table>
+</div>

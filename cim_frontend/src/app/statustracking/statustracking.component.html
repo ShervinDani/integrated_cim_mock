@@ -1,0 +1,90 @@
+<!-- <div class="status-container">
+  <h2>Customer Status Tracking</h2>
+
+  <input
+    type="text"
+    [(ngModel)]="phoneNumber"
+    placeholder="Enter phone number"
+    class="input-box"
+  />
+
+  <button (click)="checkStatus()" class="check-btn">Check Status</button>
+
+  <div *ngIf="isLoading" class="loading">Checking status...</div>
+
+  <div *ngIf="statusMessage" class="status-result">{{ statusMessage }}</div>
+</div> -->
+
+<!-- <div class="status-container">
+  <h2>Customer Status Tracking</h2>
+
+  <input
+    type="text"
+    [(ngModel)]="phoneNumber"
+    placeholder="Enter phone number"
+    class="input-box"
+  />
+
+  <button (click)="checkStatus()" class="check-btn">Check Status</button>
+</div>
+
+<div class="status-display">
+  <div *ngIf="isLoading" class="loading">Checking status...</div>
+
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <div *ngIf="!isLoading && statusMessage" class="status-result">
+    Status:
+    <span [ngSwitch]="statusMessage.toLowerCase()">
+      <span *ngSwitchCase="'pending'">
+        <i class="fa fa-hourglass-half" style="color: orange; margin-left: 5px;"></i> Pending
+      </span>
+      <span *ngSwitchCase="'approved'">
+        <i class="fa fa-check-circle" style="color: green; margin-left: 5px;"></i> Approved
+      </span>
+      <span *ngSwitchCase="'rejected'">
+        <i class="fa fa-times-circle" style="color: red; margin-left: 5px;"></i> Rejected
+      </span>
+      <span *ngSwitchDefault>
+        {{ statusMessage }}
+      </span>
+    </span>
+  </div>
+</div> -->
+<div class="status-container">
+  <h2>Customer Status Tracking</h2>
+
+  <input
+    type="text"
+    [(ngModel)]="phoneNumber"
+    placeholder="Enter phone number"
+    class="input-box"
+  />
+
+  <button (click)="checkStatus()" class="check-btn">Check Status</button>
+</div>
+
+<div class="status-display">
+  <div *ngIf="isLoading" class="loading">Checking status...</div>
+
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <div *ngIf="!isLoading && statusMessage" class="status-result-container">
+    <span class="status-label">Status:</span>
+    <span [ngSwitch]="statusMessage.toLowerCase()" class="status-text">
+      <span *ngSwitchCase="'pending'">
+        <i class="fa fa-hourglass-half" style="color: orange; margin-left: 5px;"></i> Pending
+      </span>
+      <span *ngSwitchCase="'approved'">
+        <i class="fa fa-check-circle" style="color: green; margin-left: 5px;"></i> Approved
+      </span>
+      <span *ngSwitchCase="'rejected'">
+        <i class="fa fa-times-circle" style="color: red; margin-left: 5px;"></i> Rejected
+      </span>
+      <span *ngSwitchDefault>
+        {{ statusMessage }}
+      </span>
+    </span>
+  </div>
+</div>
+

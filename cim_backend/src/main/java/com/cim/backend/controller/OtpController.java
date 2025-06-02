@@ -1,0 +1,43 @@
+package com.cim.backend.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import com.cim.backend.config.SecurityConfig;
+import com.cim.backend.model.OtpRequest;
+import com.cim.backend.service.OtpService;
+
+import java.util.Map;
+
+@RestController
+@RequestMapping
+@CrossOrigin(origins = "*")
+public class OtpController {
+
+    private final OtpService otpService;
+    private final SecurityConfig securityConfig;
+
+    @Autowired
+    public OtpController(OtpService otpService, SecurityConfig securityConfig) {
+        this.otpService = otpService;
+        this.securityConfig = securityConfig;
+    }
+
+    @PostMapping("/send-otp")
+    public ResponseEntity<Map<String, String>> sendOtp(@RequestBody OtpRequest request) {
+        otpService.sendOtp(request.getEmail());
+        System.out.println("✅ OTP sent to: " + request.getEmail());
+        return ResponseEntity.ok(Map.of("message", "OTP sent successfully"));
+    }
+
+    @PostMapping("/verify-otp")
+    public ResponseEntity<Map<String, String>> verifyOtp(@RequestBody OtpRequest request) {
+        boolean isValid = otpService.verifyOtp(request.getEmail(), request.getOtp());
+        if (isValid) {
+            return ResponseEntity.ok(Map.of("message", "OTP verified"));
+        } else {
+            return ResponseEntity.status(401).body(Map.of("error", "Invalid OTP"));
+        }
+    }
+}

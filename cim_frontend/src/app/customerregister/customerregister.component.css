@@ -1,0 +1,117 @@
+.container {
+  max-width: 650px;
+  margin-left: 350px;
+  padding: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: #f3f6fc;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+ 
+h3{
+  color: #002147;
+  margin-left: 90px;
+  font-weight: 700;
+}
+ 
+label{
+  font-size: 15px;
+  font-weight: bold;
+  font-style: initial;
+}
+ 
+input[type='text']{
+  margin: 22px;
+  height: 40px;
+  width: 70%;
+  border-width: 2px;
+  border-color: black;
+  border-radius: 10px;
+ 
+}
+ 
+input[type='date']{
+  margin: 22px;
+  margin-left: 10px;
+  height: 40px;
+  width: 70%;
+  border-width: 2px;
+  border-color: black;
+  border-radius: 10px;
+}
+ 
+.gender{
+  display: flex;
+  gap: 20px;
+}
+ 
+.gender-options{
+  display: flex;
+  gap: 20px;
+}
+ 
+input[type='email']{
+  margin: 22px;
+  margin-left: 60px;
+  height: 40px;
+  width: 70%;
+  border-width: 2px;
+  border-color: black;
+  border-radius: 10px;
+ 
+}
+input[type='tel']{
+  margin-bottom: 22px;
+  height: 40px;
+  width: 70%;
+  border-width: 2px;
+  border-color: black;
+  border-radius: 10px;
+}
+ 
+textarea{
+  border-width: 3px;
+  border-color: black;
+  border-radius: 10px;
+}
+ 
+.address
+{
+  display: flex;
+}
+ 
+.left-address{
+  margin-top: 30px;
+}
+.right-address{
+  padding-left: 30px;
+}
+ 
+button{
+  margin-top: 10px;
+  margin-left: 190px;
+  height: 60px;
+  width: 150px;
+  color: white;
+  font-size: large;
+  font-weight: 600;
+  background-color: #002147;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+ 
+button:hover{
+  font-weight: 1000;
+  color: #002147;
+  border-color: #002147;
+  transform: translateY(-10px);
+  box-shadow: 4px 4px 8px 0px #002147;
+  background-color: white;
+}
+ 
+.error{
+  color: red;
+}
+ 

@@ -1,0 +1,51 @@
+
+.container{
+  background-color: #f3f6fc;
+  width: 500px;
+  margin-top: 40px;
+  border-radius: 10px;
+  border-width: 3cm;
+  border-color: #002147;
+  box-shadow: 3px 3px 3px black;
+  transform: translateY(-10px);
+}
+ h3{
+  color: #002147;
+  padding: 30px;
+  padding-left: 100px;
+ }
+
+button{
+  margin-bottom: 30px;
+  margin-top: 30px;
+  margin-left: 170px;
+  height: 60px;
+  width: 150px;
+  color: white;
+  font-size: large;
+  font-weight: 600;
+  background-color: #002147;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+button:hover{
+  font-weight: 1000;
+  color: #002147;
+  border-color: #002147;
+  transform: translateY(-10px);
+  box-shadow: 4px 4px 8px 0px #002147;
+  background-color: white;
+}
+
+input[type='file']{
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+label{
+  font-size: 18px;
+  margin-left: 16px;
+  font-weight: 600;
+}
