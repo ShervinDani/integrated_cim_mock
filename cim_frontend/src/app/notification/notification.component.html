@@ -1,0 +1,7 @@
+<div class="notification-icon" (click)="toggleNotificationPage()">
+  <i class="fa fa-bell"></i>
+  <span *ngIf="(notificationService.hasUnread$ | async) && notificationService.messageCount > 0">
+    {{ notificationService.messageCount }}
+  </span>
+</div>
+
