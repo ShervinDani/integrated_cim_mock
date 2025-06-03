@@ -1,5 +1,16 @@
-<h1 style="text-align: center;">verify-otp</h1>
-<form (ngSubmit)="verifyOtp()">
-  <input type="text" [(ngModel)]="otp" name="otp" placeholder="Enter OTP" required />
-  <button type="submit">Verify OTP</button>
-</form>
+<div class="parent">
+  <div class="container ">
+    <div class="login-box shadow p-3 mb-5 bg-body-tertiary rounded-5 mt-4 pt-4">
+      <h2 style="color: black;">verifyOtp</h2>
+      <form (ngSubmit)="verifyOtp()">
+        <div class="input-box">
+          <input type="text" [(ngModel)]="otp" name="otp" required placeholder="Enter OTP" />
+        </div>
+
+        <button class="btn" type="submit">
+          <h6 style="color: white;">Verify OTP</h6>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
