@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface CallHistoryRepository extends JpaRepository<CallHistory, Long>{
-	public List<CallHistory> findByUserId(Long id);
+	public List<CallHistory> findByCustomerId(Long id);
 }

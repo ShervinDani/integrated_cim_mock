@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,6 +34,17 @@ public class PlanController {
 	@GetMapping("/viewAllPlans")
 	public List<Plan> viewAllplans(){
 		return planService.viewAllPlans();
+		
+	}
+	
+	@GetMapping("/getUserPlan/{customerId}")
+	public Plan getUserPlan(@PathVariable long customerId) {
+	    return planService.getUserPlan(customerId);
+	}
+	
+	@GetMapping("getplan/{planId}")
+	public Plan getPlan(@PathVariable long planId) {
+		return planService.getPlan(planId);
 		
 	}
 

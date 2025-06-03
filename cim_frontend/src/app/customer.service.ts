@@ -6,9 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CustomerService {
-  private customerId = 22; 
+  customerId:number = 22; 
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   getCustomerId(): number {
     return this.customerId;

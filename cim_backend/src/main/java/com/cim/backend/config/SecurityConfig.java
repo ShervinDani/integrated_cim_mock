@@ -60,7 +60,7 @@ public class SecurityConfig {
 	        .and()
 	        .csrf().disable() // Disable CSRF
 	        .authorizeHttpRequests(request -> request
-	            .requestMatchers("/login", "/register","/send-otp","/verify-otp").permitAll() // Public endpoints
+	            .requestMatchers("/login", "/register", "/send-otp", "/verify-otp", "/getCustomerByEmail/**").permitAll()// Public endpoints
 	            .anyRequest().authenticated() // All other endpoints require authentication
 	        )
 	        .httpBasic(Customizer.withDefaults()) // Enable HTTP Basic
@@ -104,5 +104,11 @@ public class SecurityConfig {
         return config.getAuthenticationManager();
 
     }
+    
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+    
 }
 
