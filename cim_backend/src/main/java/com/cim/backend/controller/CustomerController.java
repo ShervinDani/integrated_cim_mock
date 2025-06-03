@@ -6,7 +6,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,8 +36,24 @@ public class CustomerController {
 		return customerService.registerCustomer(newCustomer);
 	}
 	
-	@GetMapping("/getCustomerDetails")
-	public Customer getCustomerDetails(@RequestBody long customerId) {
+    @GetMapping("/api/users")
+    public List<Customer> getAllUsers() {
+        return customerService.getAllUsers();
+    }
+	
+    // Delete a user by ID
+    @DeleteMapping("/api/users/{id}")
+    public void deleteUser(@PathVariable Long id) {
+        customerService.deleteUser(id);
+    }
+//	@GetMapping("/getCustomerDetails")
+//	public Customer getCustomerDetails(@RequestBody long customerId) {
+//		return customerService.getCustomerDetails(customerId);
+//		
+//	}
+	
+	@GetMapping("/getCustomerDetails/{customerId}")
+	public Customer getCustomerDetails(@PathVariable long customerId) {
 		return customerService.getCustomerDetails(customerId);
 		
 	}
@@ -95,4 +113,10 @@ public class CustomerController {
 		return customerService.registerCustomer(customer);
 	}
 	
+	@GetMapping("/getCustomerByEmail/{email}")
+	public long getCustomerByEmail(@PathVariable String email) {
+		System.out.println("Hello");
+	    return customerService.getCustomerByEmail(email);
+	}
+
 }

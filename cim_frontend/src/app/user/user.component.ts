@@ -199,9 +199,12 @@ export class UserComponent implements OnInit {
     private customerService: CustomerService,
     private notificationService: NotificationService,
     public router: Router
-  ) { }
+  ) { 
+  }
 
   ngOnInit() {
+    const storedId = localStorage.getItem("customerId");
+    this.customerService.customerId = storedId ? parseInt(storedId) : 0;
     this.selectedSection = "viewProfile";
     this.customerService.getCustomerDetails().subscribe({
       next: (data) => {
@@ -209,7 +212,6 @@ export class UserComponent implements OnInit {
       },
       error: (err) => console.error('Failed to load customer:', err)
     });
-
     this.notificationService.checkBalance();
     this.intervalId = setInterval(() => this.notificationService.checkBalance(), 30000);
   }

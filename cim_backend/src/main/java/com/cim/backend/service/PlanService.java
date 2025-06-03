@@ -27,5 +27,13 @@ public class PlanService {
 		
 		return planRepository.findAll();
 	}
+	
+	public Plan getUserPlan(long id) {
+		return planRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Plan Not found of Id "+ id));
+	}
+
+	public Plan getPlan(long planId) {
+		return planRepository.findById(planId).get();
+	}
 
 }
