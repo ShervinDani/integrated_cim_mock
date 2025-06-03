@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -13,6 +13,8 @@ import { PaymentComponent } from './payment/payment.component';
 import { Customerform2Component } from './customerform2/customerform2.component';
 import { NumberselectionComponent } from './numberselection/numberselection.component';
 import { UserComponent } from './user/user.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { Routes } from '@angular/router';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   {
@@ -22,6 +24,10 @@ export const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent
+  },
+  {
+    path: 'admin',
+    component: AdminloginComponent
   },
   { path: 'userlogin', component: UserloginComponent },
   { path: 'verify-otp', component: VerifyOtpComponent },

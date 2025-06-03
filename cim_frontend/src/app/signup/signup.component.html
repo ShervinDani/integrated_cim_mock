@@ -1,7 +1,7 @@
 <div class="parent">
     <div class="container">
-        <div class="login-box">
-            <h2>Signup Retailer</h2>
+        <div class="login-box shadow p-3 mb-9 bg-body-tertiary rounded-5 mt-4 pt-6" style="width: 234px;">
+            <h2>Signup</h2>
             <form (ngSubmit)="onSignup()" #signupForm="ngForm">
                 <div class="input-box">
                     <input type="text" name="username" [(ngModel)]="signupObj.username" required />
@@ -11,13 +11,16 @@
                     <input type="password" name="password" [(ngModel)]="signupObj.password" required />
                     <label>Password</label>
                 </div>
-                <div>
-                    <button type="submit" class="btn" [disabled]="!signupForm.form.valid">
-                        Sign Up
+                <div class="already-account">
+                    <button type="submit" class="btn login-btn">
+                        <h6 style="color: white;">Sign Up</h6>
                     </button>
                 </div>
-                <br />
-                <a routerLink="/login" class="btn">Login</a>
+                <div class="already-account">
+                    <p>Already have an account?</p>
+                    <a routerLink="/login" class="btn login-btn" style="color: white;">Login</a>
+                </div>
+
             </form>
         </div>
     </div>
