@@ -1,7 +1,6 @@
 package com.cim.backend.model;
 
 
-import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,11 +18,11 @@ import lombok.NoArgsConstructor;
 @Data
 @Table(name = "crm_notification")
 public class Notification {
-    @Id
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long customerId;
-    private String message;
-    private LocalDateTime timestamp;
+    private int balance;
+  
   
 }

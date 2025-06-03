@@ -17,10 +17,9 @@ public class InvoiceController {
 	@Autowired
 	InvoiceService invoiceService;
 	
-    @GetMapping("/invoices/{userId}")
-    public List<Invoice> getInvoices(@PathVariable Long userId) {
-        return invoiceService.getInvoices(userId);
+	@GetMapping("/invoices/{customerId}")
+    public Invoice getInvoices(@PathVariable Long customerId) {
+        return invoiceService.getInvoices(customerId);
     }
-
 
 }

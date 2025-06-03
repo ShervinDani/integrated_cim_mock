@@ -33,9 +33,11 @@ public class OtpController {
 
     @PostMapping("/verify-otp")
     public ResponseEntity<Map<String, String>> verifyOtp(@RequestBody OtpRequest request) {
-        boolean isValid = otpService.verifyOtp(request.getEmail(), request.getOtp());
-        if (isValid) {
-            return ResponseEntity.ok(Map.of("message", "OTP verified"));
+        String token = otpService.verifyOtp(request.getEmail(), request.getOtp());
+        if (token != null) {
+            return ResponseEntity.ok(Map.of(
+            		"message", "OTP verified",
+            		"token",token));
         } else {
             return ResponseEntity.status(401).body(Map.of("error", "Invalid OTP"));
         }

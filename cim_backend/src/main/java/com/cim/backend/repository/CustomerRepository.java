@@ -13,6 +13,10 @@ import java.util.List;
 public interface CustomerRepository extends JpaRepository<Customer, Long>{
 	Optional<Customer> findByPhoneNumber(String phoneNumber);
 	
+	Customer findByEmail(String email);
+	
 	boolean existsByPhoneNumber(String phoneNumber);
+	
+	List<Customer> findByActive(boolean active);
 
 }
