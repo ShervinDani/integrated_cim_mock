@@ -9,4 +9,5 @@ import com.cim.backend.model.Invoice;
 @Repository
 public interface InvoiceRepository extends JpaRepository<Invoice, Long>{
 	public Invoice findByCustomerId(long id);
+	
 }

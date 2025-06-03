@@ -1,0 +1,85 @@
+<div class="container">
+  <header>
+    <div class="header-left">
+      <button class="menu-toggle" (click)="toggleSidebar()" aria-label="Toggle Sidebar">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+    <div class="header-center">
+      <span class="header-title">Welcome to Admin Dashboard</span>
+    </div>
+    <div class="header-right">
+      <button (click)="logout()" class="logout-btn" aria-label="Logout">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" [class.open]="isSidebarOpen">
+  <!-- <h2>Admin Panel</h2> -->
+  <button 
+    (click)="dashboard()" 
+    [class.active]="activeSection === 'dashboardAnalytics'"
+    aria-label="Dashboard Analytics">
+    <mat-icon>analytics</mat-icon> Dashboard Analytics
+  </button>
+
+  <button 
+    (click)="viewUsers()" 
+    [class.active]="activeSection === 'users'"
+    aria-label="Users">
+    <mat-icon>person</mat-icon> Users
+  </button>
+
+  <button 
+    (click)="viewRetailers()" 
+    [class.active]="activeSection === 'retailers'"
+    aria-label="Retailers">
+    <mat-icon>store</mat-icon> Retailers
+  </button>
+
+  <!-- New User Management button -->
+  <button
+    (click)="userManagement()"
+    [class.active]="activeSection === 'userManagement'"
+    aria-label="User Management">
+    <mat-icon>group</mat-icon> User Management
+  </button>
+
+  <button 
+    (click)="Document()" 
+    [class.active]="activeSection === 'document'"
+    aria-label="Document Verification">
+    <mat-icon>description</mat-icon> Document Verification
+  </button>
+  <button 
+    (click)="SessionLogs()" 
+    [class.active]="activeSection === 'sessionLogs'"
+    aria-label="Session Logs">
+    <mat-icon>history</mat-icon> Session Logs
+  </button>
+<!--   
+  <button 
+    (click)="ResetPassword()" 
+    [class.active]="activeSection === 'resetPassword'"
+    aria-label="Reset Password">
+    <mat-icon>lock_reset</mat-icon> Reset Password
+  </button> -->
+  <button
+  (click)="viewNotifications()"
+  [class.active]="activeSection === 'notifications'"
+  aria-label="Notification Center">
+  <mat-icon>notifications</mat-icon> Notifications
+</button>
+
+
+</aside>
+
+
+    <main class="content-area" [class.shifted]="isSidebarOpen">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
+

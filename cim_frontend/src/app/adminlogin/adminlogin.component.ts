@@ -26,7 +26,8 @@ export class AdminloginComponent {
         console.log('Response:', res);
         if (res?.token) {
           localStorage.setItem('authToken', res.token);
-          this.router.navigateByUrl('/dashboard');
+          console.log("Login")
+          this.router.navigateByUrl('admin/home');
         } else {
           alert('Login failed: token not received.');
         }

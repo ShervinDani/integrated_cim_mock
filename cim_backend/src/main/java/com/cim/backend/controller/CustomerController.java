@@ -36,7 +36,7 @@ public class CustomerController {
 		return customerService.registerCustomer(newCustomer);
 	}
 	
-    @GetMapping("/api/users")
+    @GetMapping("/api/customers")
     public List<Customer> getAllUsers() {
         return customerService.getAllUsers();
     }

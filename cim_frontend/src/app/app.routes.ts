@@ -15,6 +15,16 @@ import { NumberselectionComponent } from './numberselection/numberselection.comp
 import { UserComponent } from './user/user.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { Routes } from '@angular/router';
+import { RetailerComponent } from './retailer/retailer.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { SessionLogsComponent } from './session-logs/session-logs.component';
+import { PlansComponent } from './plans/plans.component';
+import { DocumentComponent } from './document/document.component';
+import { UsermanagementComponent } from './usermanagement/usermanagement.component';
+import { AdminNotificationsComponent } from './admin-notifications/admin-notifications.component';
+import { AdminComponent } from './admin/admin.component';
+import { UserAdminComponent } from './user-admin/user-admin.component';
+import { AdminRetailerComponent } from './admin-retailer/admin-retailer.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   {
@@ -47,5 +57,26 @@ export const routes: Routes = [
   },
   {
     path: 'user/dashboard', component: UserComponent
-  }
+  },
+  {
+    path: 'admin/home',
+    component: AdminComponent,
+    children: [
+      { path: '', component: UserAdminComponent }, // Default child route
+      { path: 'retailer', component: AdminRetailerComponent },
+      { path: 'resetpassword/:retailerId', component: ResetpasswordComponent }, // <-- param added here
+      { path: 'session-logs', component: SessionLogsComponent },
+      {path:'resetpassword',component:ResetpasswordComponent},
+      { path: 'plans', component: PlansComponent },
+      { path: 'document', component: DocumentComponent },
+      { path: 'login', component: LoginComponent },
+      {path:'dashboard',component:DashboardComponent},
+        { path: 'admin/home/retailers', component: RetailerComponent },
+        {path:'usermanagement',component:UsermanagementComponent},
+        { path: 'notifications', component:AdminNotificationsComponent
+},
+  { path: 'admin/home/resetpassword/:retailerId', component: ResetpasswordComponent }
+    ],
+  },
+
 ];

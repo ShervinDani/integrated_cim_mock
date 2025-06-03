@@ -1,0 +1,56 @@
+<div class="container">
+
+
+  <!-- Search Input -->
+  <div class="search-wrapper">
+    <input
+      type="text"
+      placeholder="Search users by name..."
+      [(ngModel)]="searchTerm"
+      (input)="onSearchChange()"
+      class="search-input"
+    />
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>ID</th>
+          <th>Date of Birth</th>
+          <th>Email</th>
+          <th>Gender</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>Status</th>
+          <th>Current Status</th> <!-- New column -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of filteredData">
+          <td>👤 {{ i.firstName || 'N/A' }} {{ i.lastName || '' }}</td>
+          <td>{{ i.customerId || 'N/A' }}</td>
+          <td>{{ i.dateOfBirth ? (i.dateOfBirth | date) : 'N/A' }}</td>
+          <td>{{ i.email || 'N/A' }}</td>
+          <td>{{ i.gender || 'N/A' }}</td>
+          <td>{{ i.phoneNumber || 'N/A' }}</td>
+          <td>{{ i.address || 'N/A' }}</td>
+          <td>
+            <label class="status-toggle">
+              <input
+                type="checkbox"
+                [checked]="i.status === 'Active'"
+                (change)="onToggleStatus(i, $event)"
+              />
+              <span class="slider"></span>
+            </label>
+          </td>
+          <td>{{ i.status }}</td> <!-- This will show current status text -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
