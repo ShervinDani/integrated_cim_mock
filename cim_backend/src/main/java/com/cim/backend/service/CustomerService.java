@@ -71,5 +71,14 @@ public class CustomerService {
 		return customerRepository.existsByPhoneNumber(phoneNumber);
 
     }
+	public long getCustomerByEmail(String email) {
+		return customerRepository.findByEmail(email).getCustomerId();
+	}
+	public void deleteUser(Long id) {
+		customerRepository.deleteById(id);
+	}
+	public List<Customer> getAllUsers() {
+		return customerRepository.findAll();
+	}
 
 }

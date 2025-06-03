@@ -21,7 +21,7 @@ public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long userId;
+    private Long customerId;
     private double amount;
     private LocalDate billingDate;
     private String status; 
