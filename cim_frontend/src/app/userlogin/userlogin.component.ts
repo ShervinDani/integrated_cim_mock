@@ -28,12 +28,15 @@ export class UserloginComponent {
         this.http.post<{ message: string }>('http://localhost:1010/send-otp', { email: this.email })
       );
 
-      console.log(response.message);
+      alert(response.message);
+      if(response.message != 'Customer not found'){
       localStorage.setItem('email', this.email);
       this.router.navigate(['/verify-otp']);
+      }
     } catch (error: any) {
       console.error('Error from backend:', error);
       alert(error?.error?.message || 'Failed to send OTP');
     }
   }
 }
+

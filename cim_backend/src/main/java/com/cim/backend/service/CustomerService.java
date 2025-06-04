@@ -74,6 +74,10 @@ public class CustomerService {
 	public long getCustomerByEmail(String email) {
 		return customerRepository.findByEmail(email).getCustomerId();
 	}
+	public Customer getByEmail(String email) {
+		return customerRepository.findByEmail(email);
+	}
+	
 	public void deleteUser(Long id) {
 		customerRepository.deleteById(id);
 	}
