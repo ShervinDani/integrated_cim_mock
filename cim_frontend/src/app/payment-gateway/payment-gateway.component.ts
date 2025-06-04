@@ -164,7 +164,7 @@ export class PaymentGatewayComponent implements OnInit {
     this.showToast('✅ Payment Successful!');
     console.log("hii")
     setTimeout(() => {
-      this.router.navigate(['/view-profile']);
+      this.router.navigate(['user/dashboard/view-profile']);
     }, 3000);
   }
  

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CustomerService {
-  customerId:number = 22; 
+  customerId:number; 
 
   constructor(private http: HttpClient) {
     this.customerId = Number(localStorage.getItem("customerId"));

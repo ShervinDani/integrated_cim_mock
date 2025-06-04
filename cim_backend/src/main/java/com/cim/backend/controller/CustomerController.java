@@ -66,7 +66,7 @@ public class CustomerController {
 		return customerService.getCustomerDetailsByPhoneNumber(phoneNumber);
 	}
 	
-	@PutMapping("/updateCustomer")
+	@PutMapping("/users/updateCustomer")
 	public String updateCustomer(@RequestBody Customer customer) {
 		return customerService.updateCustomer(customer);
 	}

@@ -23,6 +23,6 @@ export class AllPlansComponent implements OnInit {
 
   recharge(planId: number): void {
     console.log("hello")
-    this.router.navigate(['/user/dashboard/payment', planId]);
+    this.router.navigate(['user/dashboard/payment', planId]);
   }
 }

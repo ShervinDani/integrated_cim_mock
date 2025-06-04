@@ -86,7 +86,7 @@ export class CustomerEditComponent implements OnInit {
   ngOnInit(): void {
     const customerId = this.customerService.getCustomerId();
 
-    this.http.get(`http://localhost:1010/getCustomerDetails/${customerId}`).subscribe({
+    this.http.get(`http://localhost:1010/users/getCustomerDetails/${customerId}`).subscribe({
       next: (data: any) => {
         this.customer = data;
         this.customerForm = this.fb.group({
@@ -110,7 +110,7 @@ export class CustomerEditComponent implements OnInit {
     ...this.customerForm.value
   };
 
-  this.http.put('http://localhost:1010/updateCustomer', updatedCustomer, { responseType: 'text' }).subscribe({
+  this.http.put('http://localhost:1010/users/updateCustomer', updatedCustomer, { responseType: 'text' }).subscribe({
     next: (res) => {
       this.message = res;
       this.notificationService.showToast(res); // ✅ show toast only

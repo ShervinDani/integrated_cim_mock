@@ -26,7 +26,7 @@ import { NotificationService } from '../notification.service';
     NotificationPageComponent
   ],
   template: `
-    <ng-container *ngIf="!router.url.startsWith('/payment')">
+    <ng-container *ngIf="!router.url.startsWith('/user/dashboard/payment')">
       <nav class="navbar">
         <div class="brand">📶 CelTel</div>
         <div class="nav-right">
@@ -51,14 +51,13 @@ import { NotificationService } from '../notification.service';
             <button class="left-btn" (click)="showSection('history')">Call History</button>
           </div>
  
-          <div *ngIf="router.url !== '/notifications'" class="section-display">
+          <div *ngIf="router.url !== '/user/dashboard/notifications'" class="section-display">
             <app-all-plans *ngIf="selectedSection === 'plans'"></app-all-plans>
             <app-call-history *ngIf="selectedSection === 'history'"></app-call-history>
             <app-customer-view *ngIf="selectedSection === 'viewProfile'"></app-customer-view>
             <app-customer-edit *ngIf="selectedSection === 'updateProfile'"></app-customer-edit>
           </div>
- 
-          <app-notification-page *ngIf="router.url === '/notifications'"></app-notification-page>
+          <app-notification-page *ngIf="router.url === '/user/dashboard/notifications'"></app-notification-page>
         </div>
  
         <div class="right-panel">
@@ -67,7 +66,7 @@ import { NotificationService } from '../notification.service';
       </div>
     </ng-container>
  
-    <router-outlet *ngIf="router.url.startsWith('/payment')"></router-outlet>
+    <router-outlet *ngIf="router.url.startsWith('/user/dashboard/payment')"></router-outlet>
   `,
   styles: [`
     .navbar {
@@ -225,8 +224,8 @@ export class UserComponent implements OnInit, OnDestroy {
   }
  
   showSection(section: 'plans' | 'history' | 'viewProfile' | 'updateProfile' | 'notifications') {
-    if (this.router.url === 'user/dashboard/notifications') {
-      this.router.navigate(['/view-profile']);
+    if (this.router.url === '/user/dashboard/notifications') {
+      this.router.navigate(['/user/dashboard/view-profile']);
     }
     this.selectedSection = section;
   }
