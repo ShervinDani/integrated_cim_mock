@@ -69,7 +69,7 @@ export class CallHistoryComponent implements OnInit {
   ngOnInit(): void {
     const customerId = this.customerService.getCustomerId();
 
-    this.http.get<any[]>(`http://localhost:1010/call-history/${customerId}`)
+    this.http.get<any[]>(`http://localhost:1010/users/call-history/${customerId}`)
       .subscribe({
         next: data => this.callHistory = data,
         error: err => console.error('Failed to fetch call history', err)

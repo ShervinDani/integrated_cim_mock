@@ -17,6 +17,6 @@ export class CustomerService {
   }
 
   getCustomerDetails(): Observable<any> {
-    return this.http.get(`http://localhost:1010/getCustomerDetails/${this.customerId}`);
+    return this.http.get(`http://localhost:1010/users/getCustomerDetails/${this.customerId}`);
   }
 }

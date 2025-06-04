@@ -1,5 +1,6 @@
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { CurrentPlanComponent } from '../current-plan/current-plan.component';
 import { AllPlansComponent } from '../all-plans/all-plans.component';
 import { CallHistoryComponent } from '../call-history/call-history.component';
@@ -9,9 +10,7 @@ import { CustomerViewComponent } from '../customer-view/customer-view.component'
 import { NotificationPageComponent } from '../notificationpage/notificationpage.component';
 import { CustomerService } from '../customer.service';
 import { NotificationService } from '../notification.service';
-import { Router, RouterModule } from '@angular/router';
-import { PaymentGatewayComponent } from "../payment-gateway/payment-gateway.component";
-
+ 
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -24,9 +23,8 @@ import { PaymentGatewayComponent } from "../payment-gateway/payment-gateway.comp
     NotificationComponent,
     CustomerEditComponent,
     CustomerViewComponent,
-    NotificationPageComponent,
-    PaymentGatewayComponent
-],
+    NotificationPageComponent
+  ],
   template: `
     <ng-container *ngIf="!router.url.startsWith('/payment')">
       <nav class="navbar">
@@ -48,7 +46,7 @@ import { PaymentGatewayComponent } from "../payment-gateway/payment-gateway.comp
  
       <div class="container">
         <div class="left-panel">
-          <div *ngIf="router.url !== '/notifications'" class="sidebar-buttons">
+          <div *ngIf="router.url !== 'user/dashboard/notifications'" class="sidebar-buttons">
             <button class="left-btn" (click)="showSection('plans')">View All Plans</button>
             <button class="left-btn" (click)="showSection('history')">Call History</button>
           </div>
@@ -69,7 +67,7 @@ import { PaymentGatewayComponent } from "../payment-gateway/payment-gateway.comp
       </div>
     </ng-container>
  
-    <router-outlet *ngIf="router.url.startsWith('http://localhost:4200/user/dashboard/payment')"><app-payment-gateway/></router-outlet>
+    <router-outlet *ngIf="router.url.startsWith('/payment')"></router-outlet>
   `,
   styles: [`
     .navbar {
@@ -196,7 +194,7 @@ import { PaymentGatewayComponent } from "../payment-gateway/payment-gateway.comp
     }
 `]
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnDestroy {
   customer: any = null;
   selectedSection: 'plans' | 'history' | 'viewProfile' | 'updateProfile' | 'notifications' | null = null;
   intervalId: any;
@@ -227,7 +225,7 @@ export class UserComponent implements OnInit {
   }
  
   showSection(section: 'plans' | 'history' | 'viewProfile' | 'updateProfile' | 'notifications') {
-    if (this.router.url === '/notifications') {
+    if (this.router.url === 'user/dashboard/notifications') {
       this.router.navigate(['/view-profile']);
     }
     this.selectedSection = section;

@@ -21,7 +21,7 @@ public class CallHistoryController {
 	@Autowired
 	CallHistoryService callHistoryService;
 	
-	@GetMapping("/call-history/{customerId}")
+	@GetMapping("/users/call-history/{customerId}")
     public List<CallHistory> getCallHistory(@PathVariable Long customerId) {
         return callHistoryService.getCallHistory(customerId);
     }

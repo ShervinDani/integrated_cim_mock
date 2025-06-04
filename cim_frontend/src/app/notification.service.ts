@@ -21,7 +21,8 @@ export class NotificationService {
   }
  
   checkBalance() {
-    this.http.get<{ balance: number }>('http://localhost:1010/notifications/1')
+    const customerId = Number(localStorage.getItem("customerId"));
+    this.http.get<{ balance: number }>('http://localhost:1010/users/notifications/'+customerId)
       .subscribe(response => {
         if (response.balance <= 10) {
           const msg = `Your balance is low ${response.balance}`;

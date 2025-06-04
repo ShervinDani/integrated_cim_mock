@@ -1,12 +1,7 @@
 .container {
   width: 95vw;
-<<<<<<< HEAD
-  max-width: 1250px;
-  margin: 40px auto;
-=======
   max-width: 1290px;
   margin: 60px auto 60px auto; /* Top, Right, Bottom, Left */
->>>>>>> 308749138a03ff34231434686628c8d795c16004
   padding: 20px;
   background: #f9f9f9;
   box-sizing: border-box;
