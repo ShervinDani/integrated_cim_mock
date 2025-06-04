@@ -25,6 +25,7 @@ import { AdminNotificationsComponent } from './admin-notifications/admin-notific
 import { AdminComponent } from './admin/admin.component';
 import { UserAdminComponent } from './user-admin/user-admin.component';
 import { AdminRetailerComponent } from './admin-retailer/admin-retailer.component';
+import { ReportComponent } from './report/report.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   {
@@ -71,6 +72,7 @@ export const routes: Routes = [
       { path: 'document', component: DocumentComponent },
       { path: 'login', component: LoginComponent },
       {path:'dashboard',component:DashboardComponent},
+      {path:'report',component:ReportComponent},
         { path: 'admin/home/retailers', component: RetailerComponent },
         {path:'usermanagement',component:UsermanagementComponent},
         { path: 'notifications', component:AdminNotificationsComponent

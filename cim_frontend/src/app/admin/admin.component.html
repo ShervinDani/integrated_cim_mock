@@ -24,6 +24,13 @@
     aria-label="Dashboard Analytics">
     <mat-icon>analytics</mat-icon> Dashboard Analytics
   </button>
+   
+<button
+  (click)="generateReport()"
+  [class.active]="activeSection === 'generateReport'"
+  aria-label="Generate Report">
+  <mat-icon>description</mat-icon> Generate Report
+</button>
 
   <button 
     (click)="viewUsers()" 
@@ -39,13 +46,7 @@
     <mat-icon>store</mat-icon> Retailers
   </button>
 
-  <!-- New User Management button -->
-  <button
-    (click)="userManagement()"
-    [class.active]="activeSection === 'userManagement'"
-    aria-label="User Management">
-    <mat-icon>group</mat-icon> User Management
-  </button>
+ 
 
   <button 
     (click)="Document()" 

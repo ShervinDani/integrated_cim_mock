@@ -1,19 +1,21 @@
-/* Container fills full viewport width */
 .container {
   width: 95vw;
-  max-width: 1200px;
-  margin: 40px auto;
+  max-width: 1290px;
+  margin: 60px auto 60px auto; /* Top, Right, Bottom, Left */
   padding: 20px;
   background: #f9f9f9;
   box-sizing: border-box;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-
-  /* Fixed height, you can adjust */
   height: 700px;
   display: flex;
   flex-direction: column;
+
+  
+  margin-left: 2cap;
+  margin-right: 0;
 }
+
 
 /* Search input styling */
 .search-wrapper {
