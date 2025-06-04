@@ -24,6 +24,7 @@ import { AdminNotificationsComponent } from './admin-notifications/admin-notific
 import { AdminComponent } from './admin/admin.component';
 import { UserAdminComponent } from './user-admin/user-admin.component';
 import { AdminRetailerComponent } from './admin-retailer/admin-retailer.component';
+import { ReportComponent } from './report/report.component';
 import { CustomerViewComponent } from './customer-view/customer-view.component';
 import { CustomerEditComponent } from './customer-edit/customer-edit.component';
 import { CurrentPlanComponent } from './current-plan/current-plan.component';
@@ -87,6 +88,7 @@ export const routes: Routes = [
       { path: 'plans', component: PlansComponent },
       { path: 'document', component: DocumentComponent },
       {path:'dashboard',component:DashboardComponent},
+      {path:'report',component:ReportComponent},
         { path: 'admin/home/retailers', component: RetailerComponent },
         {path:'usermanagement',component:UsermanagementComponent},
         { path: 'notifications', component:AdminNotificationsComponent

@@ -34,7 +34,11 @@ title = 'admin';
     this.activeSection = 'document';
     this.router.navigate(['admin/home/document']);
   }
-
+generateReport()
+{
+  this.activeSection='report';
+  this.router.navigate(['admin/home/report']);
+}
   SessionLogs() {
     this.activeSection = 'sessionLogs';
     this.router.navigate(['admin/home/session-logs']);
