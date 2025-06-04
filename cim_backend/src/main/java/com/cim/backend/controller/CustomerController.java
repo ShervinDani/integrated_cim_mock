@@ -36,7 +36,7 @@ public class CustomerController {
 		return customerService.registerCustomer(newCustomer);
 	}
 	
-    @GetMapping("/api/users")
+    @GetMapping("/api/customers")
     public List<Customer> getAllUsers() {
         return customerService.getAllUsers();
     }
@@ -52,9 +52,11 @@ public class CustomerController {
 //		
 //	}
 	
-	@GetMapping("/getCustomerDetails/{customerId}")
+	@GetMapping("users/getCustomerDetails/{customerId}")
 	public Customer getCustomerDetails(@PathVariable long customerId) {
-		return customerService.getCustomerDetails(customerId);
+		Customer customer = customerService.getCustomerDetails(customerId);
+		System.out.println(customer.getFirstName());
+		return customer;
 		
 	}
 	

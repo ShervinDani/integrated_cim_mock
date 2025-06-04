@@ -1,0 +1,142 @@
+/* Header Styling */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: #093b70;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  
+  z-index: 1000;
+}
+
+/* Flex regions in header */
+.header-left,
+.header-center,
+.header-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Menu button alignment */
+.header-left {
+  justify-content: flex-start;
+}
+
+/* Logout button alignment */
+.header-right {
+  justify-content: flex-end;
+  padding-right: 30px;
+}
+
+/* Header Title */
+.header-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Sidebar Toggle Button */
+.menu-toggle {
+  font-size: 30px;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Logout Button */
+.logout-btn {
+  background: #093b70;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 250px;
+  background: #093b70;
+  color: white;
+  padding: 20px;
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+  transform: translateX(-250px);
+  height: calc(100% - 100px);
+  position: fixed;
+  top: 100px;
+  left: 0;
+  border: none;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* Sidebar Buttons */
+.sidebar button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  font-size: 16px;
+  background: transparent;
+  color: white;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+/* Sidebar Icons inside buttons */
+.sidebar button mat-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.sidebar button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar button.active {
+  background-color: rgba(255, 255, 255, 0.3);
+  font-weight: bold;
+  border-left: 4px solid #fff;
+}
+
+/* Main Content Area */
+.content-area {
+  flex: 1;
+  padding: 20px;
+  padding-top: 100px;
+  transition: margin-left 0.3s ease;
+  margin-left: 0;
+}
+
+.content-area.shifted {
+  margin-left: 90px;
+  
+}
+

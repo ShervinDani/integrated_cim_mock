@@ -31,10 +31,12 @@ public class UserController {
     
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Users user) {
+    	System.out.println("Yo");
         String token = service.verify(user);
-
+        System.out.println("Hi");
         if (token.equals("fail")) {
             Map<String, Object> error = new HashMap<>();
+            System.out.println("Invalid");
             error.put("message", "Invalid credentials");
             return ResponseEntity.status(404).body(error);
         }

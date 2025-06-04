@@ -3,6 +3,7 @@ package com.cim.backend.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -60,7 +61,8 @@ public class SecurityConfig {
 	        .and()
 	        .csrf().disable() // Disable CSRF
 	        .authorizeHttpRequests(request -> request
-	            .requestMatchers("/login", "/register", "/send-otp", "/verify-otp", "/getCustomerByEmail/**").permitAll()// Public endpoints
+	        		.requestMatchers(HttpMethod.OPTIONS,"/**").permitAll()
+	            .requestMatchers("/login/**","users/**", "/register", "/send-otp", "/verify-otp", "/getCustomerByEmail/**","/api/**").permitAll()// Public endpoints
 	            .anyRequest().authenticated() // All other endpoints require authentication
 	        )
 	        .httpBasic(Customizer.withDefaults()) // Enable HTTP Basic
@@ -68,7 +70,7 @@ public class SecurityConfig {
 	            .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // Stateless sessions
 	        )
 	        .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class); // Add JWT filter
-
+	    System.out.println("Hello");
 	    return http.build();
 	}
 

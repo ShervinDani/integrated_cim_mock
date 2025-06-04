@@ -1,4 +1,3 @@
-
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -15,6 +14,24 @@ import { NumberselectionComponent } from './numberselection/numberselection.comp
 import { UserComponent } from './user/user.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { Routes } from '@angular/router';
+import { RetailerComponent } from './retailer/retailer.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { SessionLogsComponent } from './session-logs/session-logs.component';
+import { PlansComponent } from './plans/plans.component';
+import { DocumentComponent } from './document/document.component';
+import { UsermanagementComponent } from './usermanagement/usermanagement.component';
+import { AdminNotificationsComponent } from './admin-notifications/admin-notifications.component';
+import { AdminComponent } from './admin/admin.component';
+import { UserAdminComponent } from './user-admin/user-admin.component';
+import { AdminRetailerComponent } from './admin-retailer/admin-retailer.component';
+import { ReportComponent } from './report/report.component';
+import { CustomerViewComponent } from './customer-view/customer-view.component';
+import { CustomerEditComponent } from './customer-edit/customer-edit.component';
+import { CurrentPlanComponent } from './current-plan/current-plan.component';
+import { AllPlansComponent } from './all-plans/all-plans.component';
+import { CallHistoryComponent } from './call-history/call-history.component';
+import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
+import { NotificationPageComponent } from './notificationpage/notificationpage.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   {
@@ -46,6 +63,38 @@ export const routes: Routes = [
     ]
   },
   {
-    path: 'user/dashboard', component: UserComponent
-  }
+    path: 'user/dashboard', component: UserComponent,
+    children:
+    [
+      { path: '', redirectTo: 'view-profile', pathMatch: 'full' },
+      { path: 'view-profile', component: CustomerViewComponent },
+      { path: 'update-profile', component: CustomerEditComponent },
+      { path: 'current-plan', component: CurrentPlanComponent },
+      { path: 'plans', component: AllPlansComponent },
+      { path: 'call-history', component: CallHistoryComponent },
+      { path: 'payment/:planId', component: PaymentGatewayComponent },
+      { path: 'notifications', component: NotificationPageComponent }
+    ]
+  },
+  {
+    path: 'admin/home',
+    component: AdminComponent,
+    children: [
+      { path: '', component: UserAdminComponent }, // Default child route
+      { path: 'retailer', component: AdminRetailerComponent },
+      { path: 'resetpassword/:retailerId', component: ResetpasswordComponent }, // <-- param added here
+      { path: 'session-logs', component: SessionLogsComponent },
+      {path:'resetpassword',component:ResetpasswordComponent},
+      { path: 'plans', component: PlansComponent },
+      { path: 'document', component: DocumentComponent },
+      {path:'dashboard',component:DashboardComponent},
+      {path:'report',component:ReportComponent},
+        { path: 'admin/home/retailers', component: RetailerComponent },
+        {path:'usermanagement',component:UsermanagementComponent},
+        { path: 'notifications', component:AdminNotificationsComponent
+},
+  { path: 'admin/home/resetpassword/:retailerId', component: ResetpasswordComponent }
+    ],
+  },
+
 ];
