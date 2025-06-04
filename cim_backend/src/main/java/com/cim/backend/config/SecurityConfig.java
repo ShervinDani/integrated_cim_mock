@@ -62,7 +62,7 @@ public class SecurityConfig {
 	        .csrf().disable() // Disable CSRF
 	        .authorizeHttpRequests(request -> request
 	        		.requestMatchers(HttpMethod.OPTIONS,"/**").permitAll()
-	            .requestMatchers("/login/**", "/register", "/send-otp", "/verify-otp", "/getCustomerByEmail/**","/api/**").permitAll()// Public endpoints
+	            .requestMatchers("/login/**","users/**", "/register", "/send-otp", "/verify-otp", "/getCustomerByEmail/**","/api/**").permitAll()// Public endpoints
 	            .anyRequest().authenticated() // All other endpoints require authentication
 	        )
 	        .httpBasic(Customizer.withDefaults()) // Enable HTTP Basic

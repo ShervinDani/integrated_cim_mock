@@ -51,7 +51,7 @@ title = 'admin';
   }
 
   logout() {
-    this.router.navigate(['admin/home/login']);
+    this.router.navigate(['login']);
   }
    dashboard() {
     this.activeSection='dashboard';

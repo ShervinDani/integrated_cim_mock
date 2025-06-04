@@ -24,6 +24,10 @@ public class PlanController {
 	public List<Plan> getAllPlans(){
 		return planService.getAllPlans();
 	}
+	@GetMapping("/users/getallplans")
+	public List<Plan> getAllUserstePlans(){
+		return planService.getAllPlans();
+	}
 	
 	@GetMapping("/getUserPlan")
 	public Plan getUserPlan(@RequestBody Plan plan) {
@@ -37,7 +41,7 @@ public class PlanController {
 		
 	}
 	
-	@GetMapping("/getUserPlan/{customerId}")
+	@GetMapping("/users/getUserPlan/{customerId}")
 	public Plan getUserPlan(@PathVariable long customerId) {
 	    return planService.getUserPlan(customerId);
 	}

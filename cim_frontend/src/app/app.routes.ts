@@ -1,4 +1,3 @@
-
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -25,6 +24,13 @@ import { AdminNotificationsComponent } from './admin-notifications/admin-notific
 import { AdminComponent } from './admin/admin.component';
 import { UserAdminComponent } from './user-admin/user-admin.component';
 import { AdminRetailerComponent } from './admin-retailer/admin-retailer.component';
+import { CustomerViewComponent } from './customer-view/customer-view.component';
+import { CustomerEditComponent } from './customer-edit/customer-edit.component';
+import { CurrentPlanComponent } from './current-plan/current-plan.component';
+import { AllPlansComponent } from './all-plans/all-plans.component';
+import { CallHistoryComponent } from './call-history/call-history.component';
+import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
+import { NotificationPageComponent } from './notificationpage/notificationpage.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   {
@@ -56,7 +62,18 @@ export const routes: Routes = [
     ]
   },
   {
-    path: 'user/dashboard', component: UserComponent
+    path: 'user/dashboard', component: UserComponent,
+    children:
+    [
+      { path: '', redirectTo: 'view-profile', pathMatch: 'full' },
+      { path: 'view-profile', component: CustomerViewComponent },
+      { path: 'update-profile', component: CustomerEditComponent },
+      { path: 'current-plan', component: CurrentPlanComponent },
+      { path: 'plans', component: AllPlansComponent },
+      { path: 'call-history', component: CallHistoryComponent },
+      { path: 'payment/:planId', component: PaymentGatewayComponent },
+      { path: 'notifications', component: NotificationPageComponent }
+    ]
   },
   {
     path: 'admin/home',
@@ -69,7 +86,6 @@ export const routes: Routes = [
       {path:'resetpassword',component:ResetpasswordComponent},
       { path: 'plans', component: PlansComponent },
       { path: 'document', component: DocumentComponent },
-      { path: 'login', component: LoginComponent },
       {path:'dashboard',component:DashboardComponent},
         { path: 'admin/home/retailers', component: RetailerComponent },
         {path:'usermanagement',component:UsermanagementComponent},

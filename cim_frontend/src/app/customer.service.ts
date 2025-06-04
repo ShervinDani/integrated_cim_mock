@@ -9,6 +9,7 @@ export class CustomerService {
   customerId:number = 22; 
 
   constructor(private http: HttpClient) {
+    this.customerId = Number(localStorage.getItem("customerId"));
   }
 
   getCustomerId(): number {

@@ -77,7 +77,7 @@ export class CurrentPlanComponent implements OnInit {
 
   ngOnInit(): void {
     const customerId = this.customerService.getCustomerId();
-    const url = `http://localhost:1010/getUserPlan/${customerId}`;
+    const url = `http://localhost:1010/users/getUserPlan/${customerId}`;
     
     this.http.get(url).subscribe({
       next: (plan) => {
