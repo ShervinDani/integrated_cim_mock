@@ -1,10 +1,10 @@
 package com.cim.backend.service;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.cim.backend.exception.EntityNotFoundException;
 import com.cim.backend.model.Customer;
 import com.cim.backend.model.Document;
@@ -41,19 +41,15 @@ public class CustomerService {
 	public String updateCustomer(Customer customer) {
 		Customer customer1 = customerRepository.findById(customer.getCustomerId()).orElseThrow(() -> new EntityNotFoundException("Customer Not found of Id "+ customer.getCustomerId()));
 		
-		
 		if(customer != null) {
 			
 			customer1.setEmail(customer.getEmail());
 			customer1.setAddress(customer.getAddress());
-			
-			
 		}
 		
 		customerRepository.save(customer1);
 		
 		return "Customer Updated Successfully";
-		
 	}
 	public Document uploadDocument(Document document) {
 		return documentRepository.save(document);
@@ -69,7 +65,14 @@ public class CustomerService {
 	
 	public boolean checkNumberExists(String phoneNumber) {
 		return customerRepository.existsByPhoneNumber(phoneNumber);
-
     }
+	public List<Customer> getAllCustomers() {
+	    return customerRepository.findAll();
+	}
+	
+	public List<Object[]> getCustomerCountByStatus() {
+	    return customerRepository.findStatusCounts();
+	}
+
 
 }

@@ -37,6 +37,7 @@ export const routes: Routes = [
       { path: 'payment', component: PaymentComponent },
       { path: 'documentform', component: Customerform2Component },
       { path: 'numberselection', component: NumberselectionComponent },
+      { path: 'dashboard', component: DashboardComponent },
     ]
   },
   {
