@@ -49,7 +49,6 @@ public class JWTService {
 
     public String generateTokenFromUsername(String username) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put("type", "username");
         claims.put("userDetails", service.getUser(username));
         return createToken(claims, username);
     }
@@ -57,7 +56,7 @@ public class JWTService {
     // Generate token for Customer (uses email)
     public String generateTokenFromEmail(String email) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put("type", "email");
+        claims.put("email", email);
         //claims.put("userDetails", customerService.getByEmail(email));
         return createToken(claims, email);
     }
@@ -68,7 +67,7 @@ public class JWTService {
                 .setClaims(claims)
                 .setSubject(subject) // either username or email
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10)) // 10 hours
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 30)) // 10 hours
                 .signWith(getKey())
                 .compact();
     }
