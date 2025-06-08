@@ -67,3 +67,77 @@ body {
   color: #4a90e2;
   margin-bottom: 20px;
 }
+
+.metrics-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.metric-card {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  width: 220px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  background-color: white;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  color: white;
+}
+
+.details h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.details p {
+  margin: 2px 0;
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.value {
+  display: block;
+  font-weight: bold;
+  margin: 6px 0;
+}
+
+.progress {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  height: 6px;
+  width: 100%;
+}
+
+.progress .bar {
+  height: 6px;
+  border-radius: 4px;
+  width: 70%;
+}
+
+
+.pink .icon { background-color: #f06292; }
+.pink .bar { background-color: #f06292; }
+
+.purple .icon { background-color: #9575cd; }
+.purple .bar { background-color: #9575cd; }
+
+.blue .icon { background-color: #4fc3f7; }
+.blue .bar { background-color: #4fc3f7; }
+
+.green .icon { background-color: #81c784; }
+.green .bar { background-color: #81c784; }

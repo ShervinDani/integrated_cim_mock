@@ -74,6 +74,8 @@ export const routes: Routes = [
       {path:'dashboard',component:DashboardComponent},
       {path:'report',component:ReportComponent},
         { path: 'admin/home/retailers', component: RetailerComponent },
+
+        
         {path:'usermanagement',component:UsermanagementComponent},
         { path: 'notifications', component:AdminNotificationsComponent
 },

@@ -9,18 +9,18 @@
             <th>User</th>
             <th>IP Address</th>
             <th>Login Time</th>
-            <th>Logout Time</th>
-            <th>Status</th>
+            
+            <th>Active</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let session of userSessions">
-            <td>{{ session.sessionId }}</td>
+            <td>{{ session.userId }}</td>
             <td>{{ session.username }}</td>
             <td>{{ session.ipAddress }}</td>
             <td>{{ session.loginTime }}</td>
-            <td>{{ session.logoutTime || '--' }}</td>
+            
             <td>
               <span
                 class="status"
@@ -30,7 +30,7 @@
                   'terminated': session.status === 'Terminated'
                 }"
               >
-                {{ session.status }}
+                {{ session.active }}
               </span>
             </td>
             <td>
@@ -46,7 +46,7 @@
       </table>
     </div>
 
-    <h2>🧾 Retailer Logs</h2>
+    <!-- <h2>🧾 Retailer Logs</h2>
     <div class="table-container">
       <table class="session-logs-table">
         <thead>
@@ -92,4 +92,4 @@
       </table>
     </div>
   </div>
-</div>
+</div> -->
