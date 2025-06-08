@@ -14,11 +14,13 @@ import java.util.List;
 public interface CustomerRepository extends JpaRepository<Customer, Long>{
 	Optional<Customer> findByPhoneNumber(String phoneNumber);
 	
+	Customer findByEmail(String email);
+	
 	boolean existsByPhoneNumber(String phoneNumber);
 	
 	@Query("SELECT c.status, COUNT(c) FROM Customer c GROUP BY c.status")
 	List<Object[]> findStatusCounts();
-
+	
+	List<Customer> findByActive(boolean active);
 
 }
-

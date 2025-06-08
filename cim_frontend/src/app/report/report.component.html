@@ -1,0 +1,43 @@
+<div class="report-container" [class.full-width]="reportData.length > 0">
+  <h2>User Activity Reports</h2>
+
+  <div class="report-type">
+    <label for="report-type">Select Report Type:</label>
+    <select [(ngModel)]="selectedPeriod" id="report-type">
+      <option value="" disabled>Select a period</option>
+      <option value="daily">Daily</option>
+      <option value="weekly">Weekly</option>
+      <option value="monthly">Monthly</option>
+    </select>
+  </div>
+
+  <button (click)="generateReport()" [disabled]="!selectedPeriod">Generate Report</button>
+
+  <div *ngIf="!selectedPeriod" class="info-text">
+    Please select a report type to enable the Generate Report button.
+  </div>
+
+  <div *ngIf="reportData.length > 0" class="report-result">
+    <h3>{{ selectedPeriod | titlecase }} Report</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Activity</th>
+          <th>Timestamp</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let entry of reportData">
+          <td>{{ entry.username }}</td>
+          <td>{{ entry.activity }}</td>
+          <td>{{ entry.timestamp }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button (click)="downloadReport()">Download Report</button>
+  </div>
+</div>
+

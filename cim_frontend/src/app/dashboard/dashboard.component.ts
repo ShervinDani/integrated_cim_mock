@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
+import { AfterViewInit } from '@angular/core';
+import Chart from 'chart.js/auto';
+ 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -10,55 +13,68 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
-
-  customers: any[] = [];
-  registrations: any[] = [];
-  plans: any[] = [];
-
-  selectedStatus: string = 'All';
-  selectedPlanType: string = 'All';
-
-  statusCounts: { [key: string]: number } = {};
-
-  constructor(private http: HttpClient) {}
-
-  ngOnInit() {
-    this.loadAllData();
+export class DashboardComponent {
+ 
+   ngAfterViewInit(): void {
+    this.renderBarChart();
+    this.renderPieChart();
   }
-
-  loadAllData() {
-    this.loadCustomers();
-    this.loadPlans();
-    this.loadRegistrations();
+ 
+  renderBarChart(): void {
+    const ctx = document.getElementById('barChart') as HTMLCanvasElement;
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [{
+          label: 'Plan Orders',
+          data: [120, 185, 290, 245, 390, 340],
+          backgroundColor: '#4a90e2',
+          borderRadius: 6,
+          maxBarThickness: 50
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              stepSize: 50
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            position: 'top'
+          }
+        }
+      }
+    });
   }
-
-  loadCustomers() {
-    this.http.get<any[]>('http://localhost:1010/dashboard/customers')
-      .subscribe(data => {
-        this.customers = this.selectedStatus === 'All' ? data :
-          data.filter(c => c.status?.toLowerCase() === this.selectedStatus.toLowerCase());
-      });
-  }
-
-  loadPlans() {
-    this.http.get<any[]>('http://localhost:1010/dashboard/plans')
-      .subscribe(data => {
-        this.plans = this.selectedPlanType === 'All' ? data :
-          data.filter(p => p.type?.toLowerCase() === this.selectedPlanType.toLowerCase());
-      });
-  }
-
-  loadRegistrations() {
-    this.http.get<any[]>('http://localhost:1010/dashboard/registrationstatus')
-      .subscribe(data => {
-        const counts: { [key: string]: number } = {};
-        data.forEach(entry => {
-          const status = entry[0]; 
-          const count = entry[1];   
-          counts[status] = count;
-        });
-        this.statusCounts = counts;
-      });
+ 
+  renderPieChart(): void {
+    const ctx = document.getElementById('pieChart') as HTMLCanvasElement;
+    new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Admin', 'Retailer', 'User'],
+        datasets: [{
+          label: 'User Roles',
+          data: [10, 25, 65],
+          backgroundColor: ['#4a90e2', '#f39c12', '#27ae60'],
+          borderColor: '#ffffff',
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top'
+          }
+        }
+      }
+    });
   }
 }

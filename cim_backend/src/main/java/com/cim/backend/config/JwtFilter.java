@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.cim.backend.service.JWTService;
+import com.cim.backend.service.JwtServiceFernet;
 import com.cim.backend.service.MyUserDetailsService;
 
 import java.io.IOException;

@@ -1,0 +1,95 @@
+<div class="center-wrapper">
+  <div class="session-logs-component">
+    <h2>📝 Session Logs (Users)</h2>
+    <div class="table-container">
+      <table class="session-logs-table">
+        <thead>
+          <tr>
+            <th>Session ID</th>
+            <th>User</th>
+            <th>IP Address</th>
+            <th>Login Time</th>
+            <th>Logout Time</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let session of userSessions">
+            <td>{{ session.sessionId }}</td>
+            <td>{{ session.username }}</td>
+            <td>{{ session.ipAddress }}</td>
+            <td>{{ session.loginTime }}</td>
+            <td>{{ session.logoutTime || '--' }}</td>
+            <td>
+              <span
+                class="status"
+                [ngClass]="{
+                  'Inactive': session.status === 'Inactive',
+                  'active': session.status === 'Active',
+                  'terminated': session.status === 'Terminated'
+                }"
+              >
+                {{ session.status }}
+              </span>
+            </td>
+            <td>
+              <button
+                (click)="terminateSession(session, true)"
+                [disabled]="session.status === 'Terminated'"
+              >
+                Terminate
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>🧾 Retailer Logs</h2>
+    <div class="table-container">
+      <table class="session-logs-table">
+        <thead>
+          <tr>
+            <th>Session ID</th>
+            <th>User</th>
+            <th>IP Address</th>
+            <th>Login Time</th>
+            <th>Logout Time</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let session of retailerSessions">
+            <td>{{ session.sessionId }}</td>
+            <td>{{ session.username }}</td>
+            <td>{{ session.ipAddress }}</td>
+            <td>{{ session.loginTime }}</td>
+            <td>{{ session.logoutTime || '--' }}</td>
+            <td>
+              <span
+                class="status"
+                [ngClass]="{
+                  'Inactive': session.status === 'Completed',
+                  'active': session.status === 'Active',
+                  'terminated': session.status === 'Terminated'
+                }"
+              >
+                {{ session.status }}
+              </span>
+            </td>
+            <td>
+              <button
+                (click)="terminateSession(session, false)"
+                [disabled]="session.status === 'Terminated'"
+              >
+                Terminate
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

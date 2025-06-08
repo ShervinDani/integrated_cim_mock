@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="search-wrapper">
+    <input 
+      type="text"
+      class="search-input"
+      placeholder="Search by Owner Name..."
+      [(ngModel)]="searchText"
+      (input)="filterByName()" />
+  </div>
+
+  <div class="table-wrapper">
+    <table id="retailerTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>ID</th>
+          <th>Owner Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>Status</th>
+          <th>Edit Password</th> <!-- New column for edit icon -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of filteredData">
+          <td>{{ data.companyName }}</td>
+          <td>{{ data.retailerId }}</td>
+          <td>{{ data.ownerName }}</td>
+          <td>{{ data.email }}</td>
+          <td>{{ data.phoneNumber }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.status }}</td>
+          <td class="edit-password-cell">
+            <button class="edit-password-btn" (click)="editPassword(data.retailerId)" title="Edit Password">
+              <!-- Simple SVG lock icon for edit password -->
+              <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20" fill="#093b70">
+                <path d="M12 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm6-7h-1V7a5 5 0 0 0-10 0v3H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2zm-6-3a3 3 0 0 1 3 3v3H9v-3a3 3 0 0 1 3-3z"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

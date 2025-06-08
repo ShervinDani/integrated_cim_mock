@@ -13,7 +13,7 @@ import com.cim.backend.service.CustomerService;
 import com.cim.backend.service.PlanService;
 
 @RestController
-@RequestMapping("/dashboard")
+@RequestMapping("/retailerdashboard")
 @CrossOrigin(origins = "*")
 public class RetailerDashboardController {
 
@@ -50,5 +50,4 @@ public class RetailerDashboardController {
         return customerService.getCustomerCountByStatus();
     }
 
-   
 }

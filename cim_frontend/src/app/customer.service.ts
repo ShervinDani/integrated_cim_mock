@@ -6,15 +6,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CustomerService {
-  private customerId = 22; 
+  customerId:number; 
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.customerId = Number(localStorage.getItem("customerId"));
+  }
 
   getCustomerId(): number {
     return this.customerId;
   }
 
   getCustomerDetails(): Observable<any> {
-    return this.http.get(`http://localhost:1010/getCustomerDetails/${this.customerId}`);
+    return this.http.get(`http://localhost:1010/users/getCustomerDetails/${this.customerId}`);
   }
 }

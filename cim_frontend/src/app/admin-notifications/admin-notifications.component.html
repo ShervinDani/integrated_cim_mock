@@ -1,0 +1,29 @@
+<div class="notification-wrapper">
+  <div class="header">
+    <span>Notifications</span>
+    <div class="dnd-toggle">
+      <label class="switch">
+        <input type="checkbox" [(ngModel)]="doNotDisturb" />
+        <span class="slider round"></span>
+      </label>
+      <span class="dnd-label">Do not disturb</span>
+    </div>
+  </div>
+
+  <div class="notifications-list">
+    <div *ngFor="let note of notifications" class="notification-item" [class.read]="note.read">
+      <span class="dot" *ngIf="!note.read"></span>
+      <div class="notification-content">
+        <div class="message">{{ note.message }}</div>
+        <div class="time">{{ note.time }}</div>
+      </div>
+    </div>
+  </div>
+
+ 
+  <div class="footer">
+  <button (click)="markAllAsRead()">Mark all as read</button>
+  <button (click)="markAllAsUnread()">Mark all as unread</button>
+</div>
+
+</div>

@@ -1,5 +1,17 @@
-<h1 style="text-align: center;">user Login</h1>
-<form (ngSubmit)="sendOtp()">
-  <input type="email" [(ngModel)]="email" name="email" required placeholder="Enter Email" />
-  <button type="submit">Send OTP</button>
-</form>
+<div class="parent">
+  <div class="container ">
+    <div class="login-box shadow p-3 mb-5 bg-body-tertiary rounded-5 mt-4 pt-4">
+      <h2 style="color: black;">User Login</h2>
+      <form (ngSubmit)="sendOtp()">
+        <div class="input-box">
+          <input type="email" [(ngModel)]="email" name="email" required placeholder="Enter Email" />
+
+        </div>
+
+        <button class="btn" type="submit">
+          <h6 style="color: white;">Send OTP</h6>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

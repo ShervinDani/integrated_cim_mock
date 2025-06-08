@@ -1,0 +1,122 @@
+.report-container {
+  position: relative;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  transition: max-width 0.4s ease, padding 0.4s ease, margin 0.4s ease;
+  max-width: 600px;
+  
+  /* ✨ NEW: Full screen height minus header */
+  height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+.report-container.full-width {
+  max-width: 114%;
+  width: 100vw;
+  padding: 0.5rem 4rem;
+  margin: 0 auto;
+  
+  /* ✨ Match height to screen minus header */
+  height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+
+/* Centered dropdown section */
+.report-type {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+/* --- FORM CONTROLS --- */
+h2 {
+  color: #222;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+label {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #444;
+  text-align: center;
+}
+
+select {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1.8px solid #ccc;
+  transition: border-color 0.3s ease;
+  cursor: pointer;
+}
+select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.65rem 1.8rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0,123,255,0.4);
+}
+
+button:disabled {
+  background-color: #a1c8ff;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.info-text {
+  margin-top: 1.5rem;
+  color: #666;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.report-result {
+  margin-top: 2rem;
+  text-align: left;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 0.6rem 1rem;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+

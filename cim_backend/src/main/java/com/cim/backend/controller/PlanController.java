@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +25,10 @@ public class PlanController {
 	public List<Plan> getAllPlans(){
 		return planService.getAllPlans();
 	}
+	@GetMapping("/users/getallplans")
+	public List<Plan> getAllUserstePlans(){
+		return planService.getAllPlans();
+	}
 	
 	@GetMapping("/getUserPlan")
 	public Plan getUserPlan(@RequestBody Plan plan) {
@@ -35,5 +41,18 @@ public class PlanController {
 		return planService.viewAllPlans();
 		
 	}
+	
+	@GetMapping("/users/getUserPlan/{customerId}")
+	public Plan getUserPlan(@PathVariable long customerId) {
+	    return planService.getUserPlan(customerId);
+	}
+	
+	@GetMapping("getplan/{planId}")
+	public Plan getPlan(@PathVariable long planId) {
+		return planService.getPlan(planId);
+		
+	}
 
+	
+	
 }

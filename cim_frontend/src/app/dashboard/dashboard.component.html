@@ -1,68 +1,26 @@
-<div class="dashboard-container">
-
-  <div class="section-row">
-    <div class="section-header">Customer Status Filter</div>
-    <div class="filter-select">
-      <select [(ngModel)]="selectedStatus" (change)="loadCustomers()">
-        <option value="All">All</option>
-        <option value="Approved">Approved</option>
-        <option value="Pending">Pending</option>
-        <option value="Rejected">Rejected</option>
-        <option value="Active">Active</option>
-        <option value="Inactive">Inactive</option>
-      </select>
-    </div>
+<div class="dashboard-header">
+  <div class="stat-card">
+    <h3>Total Users</h3>
+    <p>1200</p>
   </div>
-
-  <table>
-    <thead>
-      <tr><th>Name</th><th>Email</th><th>Status</th></tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let c of customers">
-        <td>{{ c.firstName }} {{ c.lastName }}</td>
-        <td>{{ c.email }}</td>
-        <td>{{ c.status }}</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <hr>
-
-  <div class="section-row">
-    <div class="section-header">Filter Plans by Type</div>
-    <div class="filter-select">
-      <select [(ngModel)]="selectedPlanType" (change)="loadPlans()">
-        <option value="All">All</option>
-        <option value="Prepaid">Prepaid</option>
-        <option value="Postpaid">Postpaid</option>
-        <option value="Data_only">Data Only</option>
-      </select>
-    </div>
+  <div class="stat-card">
+    <h3>Total Retailers</h3>
+    <p>350</p>
   </div>
+  <div class="stat-card">
+    <h3>Total Orders</h3>
+    <p>980</p>
+  </div>
+</div>
 
-  <table>
-    <thead>
-      <tr><th>Name</th><th>Price</th><th>Validity (days)</th><th>Type</th></tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let p of plans">
-        <td>{{ p.name }}</td>
-        <td>{{ p.price }}</td>
-        <td>{{ p.expiryDate }}</td>
-        <td>{{ p.type }}</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <hr>
-
-  <div class="section-header">Registration Summary</div>
-  <ul>
-    <li>Pending: {{ statusCounts['Pending'] || statusCounts['PENDING'] || 0 }}</li>
-    <li>Approved: {{ statusCounts['Approved'] || statusCounts['APPROVED'] || 0 }}</li>
-    <li>Rejected: {{ statusCounts['Rejected'] || statusCounts['REJECTED'] || 0 }}</li>
-  </ul>
-
+<div class="chart-container">
+  <div class="chart-box">
+    <h2>Monthly Orders</h2>
+    <canvas id="barChart"></canvas>
+  </div>
+  <div class="chart-box">
+    <h2>User Roles Distribution</h2>
+    <canvas id="pieChart"></canvas>
+  </div>
 </div>
 

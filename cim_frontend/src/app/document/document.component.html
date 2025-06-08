@@ -1,0 +1,45 @@
+<div class="container">
+  <h1>📄 Document Verification</h1>
+  
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Document ID</th>
+          <th>Submitted By</th>
+          <th>Status</th>
+          <th>Preview</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let doc of documents">
+          <td>{{ doc.id }}</td>
+          <td>{{ doc.submittedBy }}</td>
+          <td>
+            <span [ngClass]="{
+              'status-pending': doc.status === 'Pending',
+              'status-verified': doc.status === 'Verified'
+            }">{{ doc.status }}</span>
+          </td>
+          <td>
+            <a [href]="doc.fileUrl" target="_blank">View</a>
+          </td>
+          <td>
+            <button 
+              (click)="acceptDocument(doc)" 
+              [disabled]="doc.status === 'Verified'"
+              class="accept-button">Verify</button>
+            <button 
+              (click)="rejectDocument(doc)" 
+              [disabled]="doc.status === 'Pending'"
+              class="reject-button">Set Pending</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+

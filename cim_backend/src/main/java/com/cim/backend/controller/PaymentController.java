@@ -15,7 +15,7 @@ public class PaymentController {
     @Autowired
     private PaymentService paymentService;
 
-    @PostMapping("/submit")
+    @PostMapping("/users/submit")
     public Payment submitPayment(@RequestBody Map<String, Object> paymentPayload) {
         Long customerId = Long.valueOf(paymentPayload.get("customerId").toString());
         Long planId = Long.valueOf(paymentPayload.get("planId").toString());

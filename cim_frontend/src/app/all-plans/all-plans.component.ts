@@ -16,12 +16,13 @@ export class AllPlansComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
-    this.http.get<any[]>('http://localhost:1010/getallplans').subscribe(data => {
+    this.http.get<any[]>('http://localhost:1010/users/getallplans').subscribe(data => {
       this.plans = data;
     });
   }
 
   recharge(planId: number): void {
-    this.router.navigate(['/recharge', planId]);
+    console.log("hello")
+    this.router.navigate(['user/dashboard/payment', planId]);
   }
 }

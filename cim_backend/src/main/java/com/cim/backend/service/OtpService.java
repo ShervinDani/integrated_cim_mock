@@ -13,6 +13,9 @@ import com.cim.backend.repository.OtpRepository;
 
 @Service
 public class OtpService {
+	
+	@Autowired
+    private JWTService jwtService;
 
     @Autowired
     private JavaMailSender mailSender;
@@ -34,12 +37,12 @@ public class OtpService {
         mailSender.send(message);
     }
 
-    public boolean verifyOtp(String email, String inputOtp) {
+    public String verifyOtp(String email, String inputOtp) {
         Optional<OtpVerification> latestOtp = otpRepo.findTopByEmailOrderByCreatedAtDesc(email);
 
         if (latestOtp.isPresent() && latestOtp.get().getOtp().equals(inputOtp)) {
-            return true;
+            return jwtService.generateTokenFromEmail(email);
         }
-        return false;
+        return null;
     }
 }
