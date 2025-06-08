@@ -12,6 +12,7 @@ import java.util.Collections;
 public class UserPrincipal implements UserDetails {
 
     private Users user;
+    
 
     public UserPrincipal(Users user) {
         this.user = user;
@@ -31,6 +32,7 @@ public class UserPrincipal implements UserDetails {
     public String getUsername() {
         return user.getUsername();
     }
+    
 
     @Override
     public boolean isAccountNonExpired() {

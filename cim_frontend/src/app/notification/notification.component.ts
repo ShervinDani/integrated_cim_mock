@@ -15,11 +15,11 @@ export class NotificationComponent {
  
   toggleNotificationPage() {
     console.log("working");
-    if (this.router.url === '/notifications') {
-      this.router.navigate(['/view-profile']);
+    if (this.router.url === 'user/dashboard/notifications') {
+      this.router.navigate(['user/dashboard/view-profile']);
     } else {
       this.notificationService.markAsRead();
-      this.router.navigate(['/notifications']);
+      this.router.navigate(['user/dashboard/notifications']);
     }
   }
 }

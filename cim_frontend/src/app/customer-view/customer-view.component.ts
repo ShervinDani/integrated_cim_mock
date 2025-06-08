@@ -69,8 +69,8 @@ export class CustomerViewComponent implements OnInit {
 
   ngOnInit(): void {
     const customerId = this.customerService.getCustomerId();
-
-    this.http.get(`http://localhost:1010/getCustomerDetails/${customerId}`).subscribe({
+    console.log(customerId + "Hello");
+    this.http.get(`http://localhost:1010/users/getCustomerDetails/${customerId}`).subscribe({
       next: (data) => {
         this.customer = data;
       },

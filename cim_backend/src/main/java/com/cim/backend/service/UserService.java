@@ -38,10 +38,21 @@ public class UserService {
         
         if (authentication.isAuthenticated()) {
         	System.out.println("Hello");
-            return jwtService.generateToken(user.getUsername());
+            return jwtService.generateTokenFromUsername(user.getUsername());
         } else {
         	System.out.println("Hii");
             return "fail";
         }
+    }
+    
+    public Users getUser(String username)
+    {
+    	Users user = repo.findByUsername(username);
+    	if(user != null) {
+    		return user;
+    	}
+    	else {
+    		return null;
+    	}
     }
 }

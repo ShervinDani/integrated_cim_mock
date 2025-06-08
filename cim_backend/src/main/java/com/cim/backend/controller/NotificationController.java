@@ -15,14 +15,15 @@ import com.cim.backend.model.Notification;
 import com.cim.backend.service.NotificationService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class NotificationController {
 	
 	@Autowired
 	NotificationService notificationService;
 	
-	@GetMapping("/notifications/{customerId}")
+	@GetMapping("/users/notifications/{customerId}")
     public Notification getNotifications(@PathVariable Long customerId) {
+		System.out.println("Notification Controller");
         return notificationService.getNotifications(customerId);
     }
 

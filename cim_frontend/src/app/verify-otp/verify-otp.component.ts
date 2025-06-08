@@ -18,14 +18,28 @@ export class VerifyOtpComponent {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  async verifyOtp() {
-    try {
-      await firstValueFrom(this.http.post('http://localhost:1010/verify-otp', {
+async verifyOtp() {
+  localStorage.removeItem('authToken');
+  try {
+    // First: verify the OTP and expect a token in response
+    const otpResponse: any = await firstValueFrom(
+      this.http.post('http://localhost:1010/verify-otp', {
         email: this.email,
         otp: this.otp
-      }));
+      })
+    );
 
+    console.log('OTP verification response:', otpResponse);
+
+    // Store token in localStorage if it exists
+    if (otpResponse?.token) {
+      localStorage.setItem('authToken', otpResponse.token);
       alert('OTP Verified');
+    } else {
+      alert('OTP verification failed: token not received');
+      return;
+    }
+
       this.http.get<any>(`http://localhost:1010/getCustomerByEmail/${this.email}`).subscribe({
   next: (customer) => {
     console.log("Hello " + customer);

@@ -52,9 +52,11 @@ public class CustomerController {
 //		
 //	}
 	
-	@GetMapping("/getCustomerDetails/{customerId}")
+	@GetMapping("users/getCustomerDetails/{customerId}")
 	public Customer getCustomerDetails(@PathVariable long customerId) {
-		return customerService.getCustomerDetails(customerId);
+		Customer customer = customerService.getCustomerDetails(customerId);
+		System.out.println(customer.getFirstName());
+		return customer;
 		
 	}
 	
@@ -64,7 +66,7 @@ public class CustomerController {
 		return customerService.getCustomerDetailsByPhoneNumber(phoneNumber);
 	}
 	
-	@PutMapping("/updateCustomer")
+	@PutMapping("/users/updateCustomer")
 	public String updateCustomer(@RequestBody Customer customer) {
 		return customerService.updateCustomer(customer);
 	}

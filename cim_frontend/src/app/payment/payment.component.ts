@@ -86,7 +86,7 @@ export class PaymentComponent implements OnInit {
 
     this.loading = true;
 
-    this.http.post('http://localhost:1010/submit', payload).subscribe({
+    this.http.post('http://localhost:1010/users/submit', payload).subscribe({
       next: (res) => {
         console.log('Payment submitted:', res);
         this.paymentSuccess = true;

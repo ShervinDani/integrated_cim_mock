@@ -41,7 +41,7 @@ public class OtpService {
         Optional<OtpVerification> latestOtp = otpRepo.findTopByEmailOrderByCreatedAtDesc(email);
 
         if (latestOtp.isPresent() && latestOtp.get().getOtp().equals(inputOtp)) {
-            return jwtService.generateToken(email);
+            return jwtService.generateTokenFromEmail(email);
         }
         return null;
     }
