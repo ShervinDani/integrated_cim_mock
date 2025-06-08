@@ -60,7 +60,7 @@ onToggleStatus(user: any, event: Event) {
         customer.active = !customer.active
         Swal.fire({
           title: 'Success!',
-          text: `Status updated to ${!newStatus} successfully!`,
+          text: `Status updated to ${newStatus} successfully!`,
           icon: 'success',
           confirmButtonText: 'OK'
         });

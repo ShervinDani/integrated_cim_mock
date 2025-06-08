@@ -52,7 +52,7 @@ public class AdminService {
         Customer user = userRepository.findById(userId).orElseThrow();
         user.setActive(isActive);
         userRepository.save(user);
-        System.out.println("status updated successfully..");
+        System.out.println("status updated successfully.." + isActive);
     }
 
     public List<RetailerRequest> getAllRetailerRequests() {
