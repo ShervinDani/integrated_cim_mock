@@ -95,7 +95,7 @@ public class CustomerController {
 	        e.printStackTrace();
 	        throw new RuntimeException("Error processing document upload", e);
 	    }
-	    return customerService.uploadDocument(document);
+	    return document;
 	}
 	
 	@GetMapping("/checknumber")

@@ -32,6 +32,7 @@ import { AllPlansComponent } from './all-plans/all-plans.component';
 import { CallHistoryComponent } from './call-history/call-history.component';
 import { PaymentGatewayComponent } from './payment-gateway/payment-gateway.component';
 import { NotificationPageComponent } from './notificationpage/notificationpage.component';
+import { RetailerDashboardComponent } from './retailerdashboard/retailerdashboard.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   {
@@ -60,6 +61,7 @@ export const routes: Routes = [
       { path: 'payment', component: PaymentComponent },
       { path: 'documentform', component: Customerform2Component },
       { path: 'numberselection', component: NumberselectionComponent },
+      { path: 'retailerdashboard', component: RetailerDashboardComponent },
     ]
   },
   {
