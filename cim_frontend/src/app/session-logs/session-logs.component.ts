@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
+import { MethodService } from '../service/method.service';
 @Component({
   selector: 'app-session-logs',
   imports: [CommonModule],
@@ -10,58 +11,71 @@ import Swal from 'sweetalert2';
 export class SessionLogsComponent {
   userSessions: any[] = [];
   retailerSessions: any[] = [];
-
-  ngOnInit(): void {
-    this.loadStaticData();
+  constructor(private method: MethodService) {}
+    ngOnInit(): void {
+    this.loadUsers();
   }
 
-  loadStaticData(): void {
-    this.userSessions = [
-      {
-        sessionId: 'US123',
-        username: 'alice',
-        ipAddress: '192.168.1.1',
-        loginTime: '2025-06-03 09:00 AM',
-        logoutTime: '2025-06-03 10:30 AM',
-        status: 'Inactive'
+  loadUsers(): void {
+    this.method.getSessions().subscribe({
+      next: (res) => {
+        console.log('User data:', res);
+        this.userSessions = Array.isArray(res) ? res : res.users || [];
+        
       },
-      {
-        sessionId: 'US124',
-        username: 'bob',
-        ipAddress: '192.168.1.2',
-        loginTime: '2025-06-03 09:15 AM',
-        logoutTime: '',
-        status: 'Active'
-      },
-      {
-        sessionId: 'US125',
-        username: 'charlie',
-        ipAddress: '192.168.1.3',
-        loginTime: '2025-06-03 09:45 AM',
-        logoutTime: '2025-06-03 10:00 AM',
-        status: 'Terminated'
+      error: (err) => {
+        console.error('Error fetching users:', err);
       }
-    ];
-
-    this.retailerSessions = [
-      {
-        sessionId: 'RT201',
-        username: 'retailer_one',
-        ipAddress: '10.0.0.1',
-        loginTime: '2025-06-03 08:30 AM',
-        logoutTime: '2025-06-03 09:30 AM',
-        status: 'Inactive'
-      },
-      {
-        sessionId: 'RT202',
-        username: 'retailer_two',
-        ipAddress: '10.0.0.2',
-        loginTime: '2025-06-03 09:00 AM',
-        logoutTime: '',
-        status: 'Active'
-      }
-    ];
+    });
   }
+
+  // loadStaticData(): void {
+  //   this.userSessions = [
+  //     {
+  //       sessionId: 'US123',
+  //       username: 'alice',
+  //       ipAddress: '192.168.1.1',
+  //       loginTime: '2025-06-03 09:00 AM',
+  //       logoutTime: '2025-06-03 10:30 AM',
+  //       status: 'Inactive'
+  //     },
+  //     {
+  //       sessionId: 'US124',
+  //       username: 'bob',
+  //       ipAddress: '192.168.1.2',
+  //       loginTime: '2025-06-03 09:15 AM',
+  //       logoutTime: '',
+  //       status: 'Active'
+  //     },
+  //     {
+  //       sessionId: 'US125',
+  //       username: 'charlie',
+  //       ipAddress: '192.168.1.3',
+  //       loginTime: '2025-06-03 09:45 AM',
+  //       logoutTime: '2025-06-03 10:00 AM',
+  //       status: 'Terminated'
+  //     }
+  //   ];
+
+  //   this.retailerSessions = [
+  //     {
+  //       sessionId: 'RT201',
+  //       username: 'retailer_one',
+  //       ipAddress: '10.0.0.1',
+  //       loginTime: '2025-06-03 08:30 AM',
+  //       logoutTime: '2025-06-03 09:30 AM',
+  //       status: 'Inactive'
+  //     },
+  //     {
+  //       sessionId: 'RT202',
+  //       username: 'retailer_two',
+  //       ipAddress: '10.0.0.2',
+  //       loginTime: '2025-06-03 09:00 AM',
+  //       logoutTime: '',
+  //       status: 'Active'
+  //     }
+  //   ];
+  // }
 
   terminateSession(session: any, isUser: boolean): void {
     Swal.fire({

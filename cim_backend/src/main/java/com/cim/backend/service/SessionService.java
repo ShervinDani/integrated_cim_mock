@@ -1,9 +1,10 @@
 package com.cim.backend.service;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+
 
 import com.cim.backend.model.Session;
 import com.cim.backend.repository.SessionRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class SessionService {
     // Terminate a session by session ID
     public boolean terminateSession(Long sessionId) {
         return sessionRepository.findById(sessionId).map(session -> {
-            session.setActive(false);
+            session.setActive(0);
             sessionRepository.save(session);
             return true;
         }).orElse(false);
@@ -30,7 +31,7 @@ public class SessionService {
     // Terminate all sessions for a user
     public int terminateSessionsByUserId(Long userId) {
         List<Session> sessions = sessionRepository.findByUserIdAndActiveTrue(userId);
-        sessions.forEach(session -> session.setActive(false));
+        sessions.forEach(session -> session.setActive(0));
         sessionRepository.saveAll(sessions);
         return sessions.size();
     }
@@ -53,7 +54,8 @@ public class SessionService {
         existing.setUsername(session.getUsername());
         existing.setIpAddress(session.getIpAddress());
         existing.setLoginTime(session.getLoginTime());
-        existing.setActive(session.isActive());
+        existing.setActive(session.getActive());
+
         // Add more fields if needed
         return sessionRepository.save(existing);
     }

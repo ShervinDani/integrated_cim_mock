@@ -70,4 +70,8 @@ viewNotifications() {
   this.activeSection = 'notifications';
   this.router.navigate(['/admin/home/notifications']);
 }
+activitymonitor() {
+  this.activeSection = 'platform-activity-monitor';
+  this.router.navigate(['/admin/home/platform-activity-monitor']);
+}
 }

@@ -13,6 +13,7 @@ export class MethodService {
 
   private getRetail='http://localhost:1010/api/retailers';
   private getPlans='http://localhost:1010/getallplans';
+  private getSession='http://localhost:1010/api/sessions';
   private baseUrl = 'http://localhost:1010/api/admin';
 
   constructor(private http : HttpClient) { }
@@ -34,11 +35,16 @@ export class MethodService {
    getPlan():Observable<any> {
     return this.http.get(this.getPlans);
   }
+
+  getSessions():Observable<any> {
+    return this.http.get(this.getSession);
+  }
    updateCustomerStatus(id: number, status: string) {
   return this.http.put(`${this.baseUrl}/${id}/status`, null, {
     params: { active: status },
     responseType: 'text'
   });
+
 }
 
 }

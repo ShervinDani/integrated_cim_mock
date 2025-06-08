@@ -25,12 +25,7 @@
     <mat-icon>analytics</mat-icon> Dashboard Analytics
   </button>
    
-<button
-  (click)="generateReport()"
-  [class.active]="activeSection === 'generateReport'"
-  aria-label="Generate Report">
-  <mat-icon>description</mat-icon> Generate Report
-</button>
+
 
   <button 
     (click)="viewUsers()" 
@@ -72,6 +67,12 @@
   [class.active]="activeSection === 'notifications'"
   aria-label="Notification Center">
   <mat-icon>notifications</mat-icon> Notifications
+</button>
+<button
+  (click)="generateReport()"
+  [class.active]="activeSection === 'generateReport'"
+  aria-label="Generate Report">
+  <mat-icon>description</mat-icon> Generate Report
 </button>
 
 
